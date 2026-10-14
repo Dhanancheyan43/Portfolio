@@ -3,9 +3,14 @@ import { useEffect, useState } from 'react';
 import type { CSSProperties } from 'react';
 import statueLarge from '../assets/statue-2400.webp';
 import statueSmall from '../assets/statue-1200.webp';
+import glowLarge from '../assets/statue-glow-2400.webp';
+import glowSmall from '../assets/statue-glow-1200.webp';
 
 const STATUE_ASPECT = 1600 / 896;
 const STATUE_SRCSET = `${statueSmall} 1200w, ${statueLarge} 2400w`;
+// Pre-rendered glow of the cracks, eye ring and code streams. Baked rather than an SVG filter
+// so it is an ordinary image that moves in lockstep with the artwork.
+const GLOW_SRCSET = `${glowSmall} 1200w, ${glowLarge} 2400w`;
 
 // Deterministic pseudo-random spread so layouts are stable between renders.
 const rand = (i: number, n: number) => ((Math.sin(i * 12.9898 + n * 78.233) * 43758.5453) % 1 + 1) % 1;
@@ -92,31 +97,13 @@ export default function Backdrop() {
 
   return (
     <div className="pointer-events-none fixed inset-0 z-0 overflow-hidden bg-ink" aria-hidden="true">
-      <svg width="0" height="0" className="absolute">
-        <defs>
-          {/* Keeps only strongly green pixels (the cracks, eye ring and code streams) and blooms them. */}
-          <filter id="neon-extract" colorInterpolationFilters="sRGB">
-            <feColorMatrix
-              type="matrix"
-              values="0.15 0 0 0 0  0 1.4 0 0 0  0 0 0.95 0 0  -3 3.5 -0.5 0 -0.4"
-              result="neon"
-            />
-            <feGaussianBlur in="neon" stdDeviation="5" result="bloom" />
-            <feMerge>
-              <feMergeNode in="bloom" />
-              <feMergeNode in="bloom" />
-              <feMergeNode in="neon" />
-            </feMerge>
-          </filter>
-        </defs>
-      </svg>
 
       <motion.div
         className="absolute"
         style={{ y: panY, width: artWidth, height: artHeight, left: (vw - artWidth) / 2, top: -12 }}
       >
         <motion.div className="absolute inset-0" style={{ x, y }}>
-          <div className="animate-ken-burns absolute inset-0 origin-top">
+          <div className="animate-ken-burns absolute inset-0 isolate origin-top">
             <img
               src={statueLarge}
               srcSet={STATUE_SRCSET}
@@ -126,13 +113,12 @@ export default function Backdrop() {
               className="absolute inset-0 h-full w-full"
             />
             <img
-              src={statueLarge}
-              srcSet={STATUE_SRCSET}
+              src={glowLarge}
+              srcSet={GLOW_SRCSET}
               sizes={`${Math.ceil(artWidth)}px`}
               alt=""
               decoding="async"
               className="animate-crack-pulse absolute inset-0 h-full w-full mix-blend-screen"
-              style={{ filter: 'url(#neon-extract)' }}
             />
           </div>
         </motion.div>

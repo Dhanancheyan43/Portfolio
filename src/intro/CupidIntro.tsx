@@ -5,6 +5,7 @@ import { Component, Suspense, useCallback, useEffect, useMemo, useRef, useState 
 import type { MutableRefObject, ReactNode } from 'react';
 import * as THREE from 'three';
 import Cupid from './Cupid';
+import FitText from '../components/FitText';
 import { heartGeometry } from './heart';
 
 const PART_DURATION = 1.8;
@@ -337,11 +338,10 @@ export default function CupidIntro({ onFinish }: IntroProps) {
               <span className="font-mono text-[10px] uppercase tracking-[0.5em] text-mint/80 sm:text-xs">
                 — welcome to the realm of —
               </span>
-              <h1
-                className="hero-heading mt-2 font-display font-black uppercase leading-none"
-                style={{ fontSize: 'clamp(4rem, 16vw, 13rem)' }}
-              >
-                Jack
+              <h1 className="mt-2 w-[min(92vw,1100px)]">
+                <FitText max={190} className="hero-heading font-algerian font-black uppercase leading-none">
+                  Dhanancheyan
+                </FitText>
               </h1>
               <span
                 className="mt-1 font-serif italic text-marble/90"

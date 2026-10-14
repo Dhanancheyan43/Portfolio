@@ -14,6 +14,9 @@ export default {
       },
       fontFamily: {
         display: ['"Cinzel Decorative"', 'Cinzel', 'serif'],
+        // Algerian is a licensed font (bundled with Microsoft Office); visitors who have it
+        // installed get it, everyone else gets Cinzel Decorative.
+        algerian: ['Algerian', '"Algerian Regular"', '"Cinzel Decorative"', 'Cinzel', 'serif'],
         cinzel: ['Cinzel', 'serif'],
         serif: ['"Cormorant Garamond"', 'Georgia', 'serif'],
         mono: ['"Space Mono"', 'ui-monospace', 'monospace'],

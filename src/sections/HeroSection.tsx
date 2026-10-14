@@ -2,6 +2,7 @@ import FadeIn from '../components/FadeIn';
 import Magnet from '../components/Magnet';
 import ContactButton from '../components/ContactButton';
 import GreekKey from '../components/greek/GreekKey';
+import FitText from '../components/FitText';
 
 const NAV_LINKS = ['About', 'Price', 'Projects', 'Contact'];
 
@@ -23,10 +24,12 @@ export default function HeroSection() {
         <GreekKey className="mt-4 opacity-40 md:mt-5" height={14} />
       </FadeIn>
 
-      <div className="overflow-hidden">
+      <div className="px-4 sm:px-6 md:px-10">
         <FadeIn delay={0.15} y={40}>
-          <h1 className="hero-heading mt-6 w-full pb-[0.12em] whitespace-nowrap text-center font-display text-[10vw] font-black uppercase leading-none tracking-tight sm:mt-4 sm:text-[10vw] md:mt-2 md:text-[10.5vw] lg:text-[11vw]">
-            Hi, i&apos;m jack
+          <h1 className="mt-6 w-full sm:mt-4 md:mt-3">
+            <FitText max={260} className="hero-heading pb-[0.08em] font-algerian font-black uppercase leading-none tracking-tight">
+              Dhanancheyan
+            </FitText>
           </h1>
         </FadeIn>
       </div>
