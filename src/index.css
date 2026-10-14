@@ -32,6 +32,16 @@ body,
   filter: drop-shadow(0 0 22px rgba(61, 255, 154, 0.25));
 }
 
+/* The name: crisp plain white, with only a soft neutral shadow for legibility. */
+.name-title {
+  color: #ffffff;
+  letter-spacing: 0.14em;
+  margin-right: -0.14em;
+  text-shadow: 0 2px 14px rgba(0, 0, 0, 0.55);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: geometricPrecision;
+}
+
 .neon-text {
   color: #3dff9a;
   text-shadow:

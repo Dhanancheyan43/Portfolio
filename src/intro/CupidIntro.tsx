@@ -339,7 +339,7 @@ export default function CupidIntro({ onFinish }: IntroProps) {
                 — welcome to the realm of —
               </span>
               <h1 className="mt-2 w-[min(92vw,1100px)]">
-                <FitText max={190} className="hero-heading font-algerian font-black uppercase leading-none">
+                <FitText max={96} fill={0.7} fillNarrow={0.92} className="name-title font-cinzel font-semibold uppercase leading-none">
                   Dhanancheyan
                 </FitText>
               </h1>

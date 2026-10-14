@@ -27,7 +27,7 @@ export default function HeroSection() {
       <div className="px-4 sm:px-6 md:px-10">
         <FadeIn delay={0.15} y={40}>
           <h1 className="mt-6 w-full sm:mt-4 md:mt-3">
-            <FitText max={260} className="hero-heading pb-[0.08em] font-algerian font-black uppercase leading-none tracking-tight">
+            <FitText max={104} fill={0.62} fillNarrow={0.92} className="name-title font-cinzel font-semibold uppercase leading-none">
               Dhanancheyan
             </FitText>
           </h1>

@@ -8,11 +8,13 @@ type FitTextProps = {
   max?: number;
   /** Fraction of the container width the text should occupy. */
   fill?: number;
+  /** Fill used when the container is narrower than 520px (phones). */
+  fillNarrow?: number;
 };
 
 // Sizes a single line of text to fill its container's width. Re-measures on resize and once
 // web fonts finish loading, because the display font's width differs from the fallback's.
-export default function FitText({ children, className = '', max = 400, fill = 1 }: FitTextProps) {
+export default function FitText({ children, className = '', max = 400, fill = 1, fillNarrow = fill }: FitTextProps) {
   const box = useRef<HTMLDivElement>(null);
   const text = useRef<HTMLSpanElement>(null);
 
@@ -22,7 +24,8 @@ export default function FitText({ children, className = '', max = 400, fill = 1 
       text.current.style.fontSize = '100px';
       const natural = text.current.getBoundingClientRect().width;
       if (!natural) return;
-      const size = Math.min(max, (box.current.clientWidth * fill * 100) / natural);
+      const width = box.current.clientWidth;
+      const size = Math.min(max, (width * (width < 520 ? fillNarrow : fill) * 100) / natural);
       text.current.style.fontSize = `${size}px`;
     };
     fit();
@@ -34,7 +37,7 @@ export default function FitText({ children, className = '', max = 400, fill = 1 
       observer.disconnect();
       document.fonts?.removeEventListener('loadingdone', fit);
     };
-  }, [max, fill]);
+  }, [max, fill, fillNarrow]);
 
   return (
     <div ref={box} className="w-full text-center">
