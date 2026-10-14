@@ -1,15 +1,14 @@
 import FadeIn from '../components/FadeIn';
 import AnimatedText from '../components/AnimatedText';
 import ContactButton from '../components/ContactButton';
-import Column from '../components/greek/Column';
 import Amphora from '../components/greek/Amphora';
 import Bust from '../components/greek/Bust';
 import { FlowerCluster } from '../components/greek/Flower';
 
 const DECORATIONS = [
   {
-    Art: () => <Column className="h-auto w-full" />,
-    className: 'top-[4%] left-[1%] sm:left-[2%] md:left-[4%] w-[70px] sm:w-[90px] md:w-[120px]',
+    Art: () => <FlowerCluster flip className="h-auto w-full" />,
+    className: 'top-[4%] left-[1%] sm:left-[2%] md:left-[4%] w-[110px] sm:w-[150px] md:w-[190px]',
     delay: 0.1,
     x: -80,
   },

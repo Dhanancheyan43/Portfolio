@@ -9,12 +9,12 @@ export default function HeroSection() {
   return (
     <section className="relative flex h-screen flex-col" style={{ overflowX: 'clip' }}>
       <FadeIn delay={0} y={-20}>
-        <nav className="flex justify-between px-6 pt-6 md:px-10 md:pt-8">
+        <nav className="flex justify-between px-4 pt-6 sm:px-6 md:px-10 md:pt-8">
           {NAV_LINKS.map((link) => (
             <a
               key={link}
               href={`#${link.toLowerCase()}`}
-              className="font-cinzel text-sm font-semibold uppercase tracking-wider text-marble transition-all duration-200 hover:text-neon hover:opacity-90 md:text-lg lg:text-[1.4rem]"
+              className="font-cinzel text-xs font-semibold uppercase tracking-wide sm:text-sm sm:tracking-wider text-marble transition-all duration-200 hover:text-neon hover:opacity-90 md:text-lg lg:text-[1.4rem]"
             >
               {link}
             </a>
@@ -25,13 +25,13 @@ export default function HeroSection() {
 
       <div className="overflow-hidden">
         <FadeIn delay={0.15} y={40}>
-          <h1 className="hero-heading mt-6 w-full pb-[0.12em] whitespace-nowrap text-center font-display text-[11vw] font-black uppercase leading-none tracking-tight sm:mt-4 sm:text-[11.5vw] md:mt-2 md:text-[12vw] lg:text-[12.5vw]">
+          <h1 className="hero-heading mt-6 w-full pb-[0.12em] whitespace-nowrap text-center font-display text-[10vw] font-black uppercase leading-none tracking-tight sm:mt-4 sm:text-[10vw] md:mt-2 md:text-[10.5vw] lg:text-[11vw]">
             Hi, i&apos;m jack
           </h1>
         </FadeIn>
       </div>
 
-      <div className="mt-auto flex items-end justify-between px-6 pb-7 sm:pb-8 md:px-10 md:pb-10">
+      <div className="mt-auto flex items-end justify-between gap-3 px-4 pb-7 sm:px-6 sm:pb-8 md:px-10 md:pb-10">
         <FadeIn delay={0.35} y={20} className="relative z-20">
           <p
             className="max-w-[160px] font-serif font-medium italic leading-snug tracking-wide text-marble sm:max-w-[220px] md:max-w-[280px]"

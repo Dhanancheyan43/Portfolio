@@ -6,7 +6,7 @@ export default function ContactButton({ className = '' }: ContactButtonProps) {
   return (
     <a
       href="#contact"
-      className={`inline-block rounded-full px-8 py-3 font-cinzel text-xs font-semibold uppercase tracking-widest text-white transition-[filter] duration-200 hover:brightness-110 sm:px-10 sm:py-3.5 sm:text-sm md:px-12 md:py-4 md:text-base ${className}`}
+      className={`inline-block whitespace-nowrap rounded-full px-6 py-3 font-cinzel text-xs font-semibold uppercase tracking-widest text-white transition-[filter] duration-200 hover:brightness-110 sm:px-10 sm:py-3.5 sm:text-sm md:px-12 md:py-4 md:text-base ${className}`}
       style={{
         background: 'linear-gradient(123deg, #03140B 6%, #0F6B42 38%, #22C673 72%, #F6B7C9 100%)',
         boxShadow:

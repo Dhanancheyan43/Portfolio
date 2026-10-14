@@ -1,6 +1,8 @@
 import { AnimatePresence, motion } from 'framer-motion';
 import { lazy, Suspense, useEffect, useState } from 'react';
+import type { CSSProperties } from 'react';
 import Backdrop from './components/Backdrop';
+import Pillars, { SHAFT_RIGHT } from './components/Pillars';
 import MarbleDefs from './components/greek/MarbleDefs';
 import HeroSection from './sections/HeroSection';
 import MarqueeSection from './sections/MarqueeSection';
@@ -47,7 +49,18 @@ export default function App() {
         )}
       </AnimatePresence>
 
-      <main className="relative z-10" style={{ overflowX: 'clip' }}>
+      <main
+        className="relative z-10"
+        style={
+          {
+            overflowX: 'clip',
+            '--pillar-w': 'clamp(30px, 9vw, 150px)',
+            // Content sits flush against the inner edge of each shaft.
+            paddingInline: `calc(var(--pillar-w) * ${SHAFT_RIGHT})`,
+          } as CSSProperties
+        }
+      >
+        <Pillars />
         {/* The hero mounts after the intro so its entrance animation is actually seen. */}
         {introDone ? <HeroSection /> : <div className="h-screen" />}
         <MarqueeSection />
