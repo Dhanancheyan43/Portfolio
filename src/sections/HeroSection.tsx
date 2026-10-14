@@ -1,41 +1,9 @@
-import { useState } from 'react';
 import FadeIn from '../components/FadeIn';
 import Magnet from '../components/Magnet';
 import ContactButton from '../components/ContactButton';
 import GreekKey from '../components/greek/GreekKey';
-import Bust from '../components/greek/Bust';
-import { FlowerCluster } from '../components/greek/Flower';
 
 const NAV_LINKS = ['About', 'Price', 'Projects', 'Contact'];
-
-// Drop the portrait into /public under this name; the marble bust shows until it exists.
-const PORTRAIT_URL = '/hero-portrait.png';
-
-function Shrine() {
-  const [hasPortrait, setHasPortrait] = useState(true);
-
-  return (
-    <div className="relative">
-      <div className="neon-border relative aspect-[3/4] w-full overflow-hidden rounded-t-full border-2 bg-gradient-to-b from-moss/80 via-ink/70 to-moss">
-        <div className="cyber-grid absolute inset-0 opacity-60" />
-        {hasPortrait ? (
-          <img
-            src={PORTRAIT_URL}
-            alt="Portrait of Jack"
-            className="relative h-full w-full select-none object-cover object-top"
-            draggable={false}
-            onError={() => setHasPortrait(false)}
-          />
-        ) : (
-          <Bust className="relative mx-auto mt-[12%] h-[88%] w-auto" />
-        )}
-        <div className="pointer-events-none absolute inset-x-0 bottom-0 h-1/4 bg-gradient-to-t from-ink/80 to-transparent" />
-      </div>
-      <FlowerCluster className="absolute -bottom-[6%] -left-[22%] w-[48%]" />
-      <FlowerCluster flip className="absolute -bottom-[6%] -right-[22%] w-[48%]" />
-    </div>
-  );
-}
 
 export default function HeroSection() {
   return (
@@ -76,23 +44,17 @@ export default function HeroSection() {
           </span>
         </FadeIn>
         <FadeIn delay={0.5} y={20} className="relative z-20">
-          <ContactButton />
-        </FadeIn>
-      </div>
-
-      <div className="absolute left-1/2 top-1/2 z-10 w-[220px] -translate-x-1/2 -translate-y-1/2 sm:bottom-0 sm:top-auto sm:w-[260px] sm:translate-y-0 md:w-[300px] lg:w-[340px]">
-        <FadeIn delay={0.6} y={30}>
           <Magnet
             padding={150}
             strength={3}
             activeTransition="transform 0.3s ease-out"
             inactiveTransition="transform 0.6s ease-in-out"
-            wrapperClassName="w-full"
           >
-            <Shrine />
+            <ContactButton />
           </Magnet>
         </FadeIn>
       </div>
+
     </section>
   );
 }

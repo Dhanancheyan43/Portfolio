@@ -68,7 +68,11 @@ body,
 @media (prefers-reduced-motion: reduce) {
   .animate-petal-fall,
   .animate-flicker,
-  .animate-glow-pulse {
+  .animate-glow-pulse,
+  .animate-ken-burns,
+  .animate-crack-pulse,
+  .animate-rain-fall,
+  .animate-scan-sweep {
     animation: none !important;
   }
 }
