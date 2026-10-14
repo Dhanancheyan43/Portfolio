@@ -1,32 +1,33 @@
 import FadeIn from '../components/FadeIn';
 import AnimatedText from '../components/AnimatedText';
 import ContactButton from '../components/ContactButton';
-
-const ASSET_BASE =
-  'https://shrug-person-78902957.figma.site/_components/v2/ebb2b8f25d8e24d5f0a5ca8af4c950de81aa2fd7/';
+import Column from '../components/greek/Column';
+import Amphora from '../components/greek/Amphora';
+import Bust from '../components/greek/Bust';
+import { FlowerCluster } from '../components/greek/Flower';
 
 const DECORATIONS = [
   {
-    src: `${ASSET_BASE}moon_icon.11395d36.png`,
-    className: 'top-[4%] left-[1%] sm:left-[2%] md:left-[4%] w-[120px] sm:w-[160px] md:w-[210px]',
+    Art: () => <Column className="h-auto w-full" />,
+    className: 'top-[4%] left-[1%] sm:left-[2%] md:left-[4%] w-[70px] sm:w-[90px] md:w-[120px]',
     delay: 0.1,
     x: -80,
   },
   {
-    src: `${ASSET_BASE}p59_1.4659672e.png`,
+    Art: () => <FlowerCluster className="h-auto w-full" />,
     className: 'bottom-[8%] left-[3%] sm:left-[6%] md:left-[10%] w-[100px] sm:w-[140px] md:w-[180px]',
     delay: 0.25,
     x: -80,
   },
   {
-    src: `${ASSET_BASE}lego_icon-1.703bb594.png`,
-    className: 'top-[4%] right-[1%] sm:right-[2%] md:right-[4%] w-[120px] sm:w-[160px] md:w-[210px]',
+    Art: () => <Amphora className="h-auto w-full" />,
+    className: 'top-[4%] right-[1%] sm:right-[2%] md:right-[4%] w-[100px] sm:w-[130px] md:w-[170px]',
     delay: 0.15,
     x: 80,
   },
   {
-    src: `${ASSET_BASE}Group_134-1.2e04f3ce.png`,
-    className: 'bottom-[8%] right-[3%] sm:right-[6%] md:right-[10%] w-[130px] sm:w-[170px] md:w-[220px]',
+    Art: () => <Bust className="h-auto w-full" />,
+    className: 'bottom-[8%] right-[3%] sm:right-[6%] md:right-[10%] w-[110px] sm:w-[150px] md:w-[190px]',
     delay: 0.3,
     x: 80,
   },
@@ -41,24 +42,27 @@ export default function AboutSection() {
       id="about"
       className="relative flex min-h-screen items-center justify-center px-5 py-20 sm:px-8 md:px-10"
     >
-      {DECORATIONS.map((item) => (
+      {DECORATIONS.map((item, i) => (
         <FadeIn
-          key={item.src}
+          key={i}
           delay={item.delay}
           x={item.x}
           y={0}
           duration={0.9}
-          className={`pointer-events-none absolute ${item.className}`}
+          className={`pointer-events-none absolute opacity-80 md:opacity-100 ${item.className}`}
         >
-          <img src={item.src} alt="" className="h-auto w-full" />
+          <item.Art />
         </FadeIn>
       ))}
 
       <div className="relative z-10 flex flex-col items-center gap-16 sm:gap-20 md:gap-24">
         <div className="flex flex-col items-center gap-10 sm:gap-14 md:gap-16">
-          <FadeIn delay={0} y={40}>
+          <FadeIn delay={0} y={40} className="flex flex-col items-center gap-3">
+            <span className="font-mono text-[10px] uppercase tracking-[0.4em] text-neon/80 sm:text-xs">
+              // chapter i
+            </span>
             <h2
-              className="hero-heading text-center font-black uppercase leading-none tracking-tight"
+              className="hero-heading text-center font-display font-black uppercase leading-none tracking-tight"
               style={{ fontSize: 'clamp(3rem, 12vw, 160px)' }}
             >
               About me
@@ -66,8 +70,8 @@ export default function AboutSection() {
           </FadeIn>
           <AnimatedText
             text={ABOUT_TEXT}
-            className="max-w-[560px] text-center font-medium leading-relaxed text-[#D7E2EA]"
-            style={{ fontSize: 'clamp(1rem, 2vw, 1.35rem)' }}
+            className="max-w-[600px] text-center font-serif font-medium leading-relaxed text-marble"
+            style={{ fontSize: 'clamp(1.15rem, 2.3vw, 1.65rem)' }}
           />
         </div>
         <ContactButton />

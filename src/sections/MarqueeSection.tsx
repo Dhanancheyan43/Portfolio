@@ -47,7 +47,7 @@ function MarqueeRow({
           src={src}
           alt=""
           loading="lazy"
-          className="h-[270px] w-[420px] shrink-0 rounded-2xl object-cover"
+          className="h-[270px] w-[420px] shrink-0 rounded-2xl border border-neon/30 object-cover shadow-[0_0_24px_rgba(61,255,154,0.12)]"
         />
       ))}
     </div>
@@ -78,7 +78,6 @@ export default function MarqueeSection() {
     <section
       ref={sectionRef}
       className="flex flex-col gap-3 overflow-hidden pb-10 pt-24 sm:pt-32 md:pt-40"
-      style={{ background: '#0C0C0C' }}
     >
       {/* Row 1 is anchored to the right edge so moving right never exposes an empty left side. */}
       <MarqueeRow images={ROW_1} className="self-end" transform={`translateX(${offset - 200}px)`} />

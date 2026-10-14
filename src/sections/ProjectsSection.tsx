@@ -60,26 +60,26 @@ function ProjectCard({ project, index, totalCards, progress }: ProjectCardProps)
   return (
     <div className="sticky top-24 flex h-[85vh] items-start justify-center md:top-32">
       <motion.article
-        className="relative w-full origin-top rounded-[40px] border-2 border-[#D7E2EA] p-4 sm:rounded-[50px] sm:p-6 md:rounded-[60px] md:p-8"
-        style={{ scale, top: `${index * 28}px`, background: '#0C0C0C' }}
+        className="neon-border relative w-full origin-top rounded-[40px] border-2 p-4 sm:rounded-[50px] sm:p-6 md:rounded-[60px] md:p-8"
+        style={{ scale, top: `${index * 28}px`, background: 'linear-gradient(160deg, #0A2418 0%, #03100A 60%)' }}
       >
         <div className="mb-4 flex flex-wrap items-center justify-between gap-4 px-2 sm:mb-6 sm:px-4 md:mb-8">
           <div className="flex items-center gap-4 sm:gap-6 md:gap-8">
             <span
-              className="hero-heading font-black leading-none"
+              className="hero-heading font-display font-black leading-none"
               style={{ fontSize: 'clamp(3rem, 10vw, 140px)' }}
             >
               {String(index + 1).padStart(2, '0')}
             </span>
             <div className="flex flex-col gap-1">
               <span
-                className="font-light uppercase tracking-widest text-[#D7E2EA]/60"
+                className="font-mono uppercase tracking-widest text-neon/80"
                 style={{ fontSize: 'clamp(0.75rem, 1.2vw, 1rem)' }}
               >
                 {project.category}
               </span>
               <h3
-                className="font-medium uppercase text-[#D7E2EA]"
+                className="font-cinzel font-semibold uppercase text-marble"
                 style={{ fontSize: 'clamp(1rem, 2.2vw, 2.1rem)' }}
               >
                 {project.name}
@@ -131,11 +131,13 @@ export default function ProjectsSection() {
     <section
       id="projects"
       className="relative z-10 -mt-10 rounded-t-[40px] px-5 py-20 sm:-mt-12 sm:rounded-t-[50px] sm:px-8 sm:py-24 md:-mt-14 md:rounded-t-[60px] md:px-10 md:py-32"
-      style={{ background: '#0C0C0C' }}
+      style={{ background: '#03100A', boxShadow: '0 -1px 0 rgba(61,255,154,0.5), 0 -20px 60px rgba(61,255,154,0.12)' }}
     >
-      <FadeIn y={40}>
+      <div className="cyber-grid pointer-events-none absolute inset-0 rounded-t-[inherit] opacity-50" />
+      <FadeIn y={40} className="relative flex flex-col items-center gap-3">
+        <span className="font-mono text-[10px] uppercase tracking-[0.4em] text-neon/80 sm:text-xs">// chapter iii</span>
         <h2
-          className="hero-heading mb-16 text-center font-black uppercase leading-none tracking-tight sm:mb-20 md:mb-28"
+          className="hero-heading mb-16 font-display text-center font-black uppercase leading-none tracking-tight sm:mb-20 md:mb-28"
           style={{ fontSize: 'clamp(3rem, 12vw, 160px)' }}
         >
           Project
